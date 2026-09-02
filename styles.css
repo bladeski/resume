@@ -104,6 +104,7 @@ header {
     font-style: normal;
 
     ul {
+      margin: 0;
       list-style: none;
     }
   }
@@ -208,21 +209,21 @@ dl {
   &::after {
     content: '';
     display: flex;
-    width: var(--spacing-standard);
-    height: calc(2 * var(--spacing-standard));
+    width: var(--spacing-small);
+    height: calc(2 * var(--spacing-small));
     border: 1px solid var(--bg);
   }
 
   &::before {
-    border-top-left-radius: var(--spacing-standard);
-    border-bottom-left-radius: var(--spacing-standard);
+    border-top-left-radius: var(--spacing-small);
+    border-bottom-left-radius: var(--spacing-small);
     background-color: var(--bg);
     border-right: none;
   }
 
   &::after {
-    border-top-right-radius: var(--spacing-standard);
-    border-bottom-right-radius: var(--spacing-standard);
+    border-top-right-radius: var(--spacing-small);
+    border-bottom-right-radius: var(--spacing-small);
     border-left: none;
   }
 }
