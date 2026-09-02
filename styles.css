@@ -1,6 +1,6 @@
 :root {
   --font-family: 'Inter', sans-serif;
-  --font-size: 20px;
+  --font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
 
   --spacing-small: 0.5rem;
   --spacing-standard: 1rem;
@@ -20,6 +20,7 @@
   --text-colour: var(--bg-contrast);
   --heading-colour: color-mix(in oklab, var(--color-navy) 55%, contrast-color(var(--bg)) 45%);
   --accent-colour: color-mix(in oklab, var(--color-teal) 70%, contrast-color(var(--bg)) 30%);
+  --border-colour: var(--color-light-slate);
 }
 
 @media (prefers-color-scheme: light) {
@@ -34,7 +35,9 @@
   }
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -59,7 +62,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-
+  line-height: 1.6;
 
   width: 100%;
   overflow: auto;
@@ -73,14 +76,13 @@ body {
 
 header,
 main {
-  overflow: auto;
-  max-width: 1000px;
+  max-width: 72ch;
   width: 100%;
 }
 
 header,
 section {
-  border-bottom: 2px solid var(--color-light-slate);
+  border-bottom: 2px solid var(--border-colour);
   padding-bottom: var(--spacing-standard);
   margin-bottom: var(--spacing-large);
 }
@@ -113,32 +115,57 @@ header {
   }
 }
 
+section {
+  & > article + article {
+    margin-top: var(--spacing-large);
+  }
+
+  article {
+    ul {
+      padding-inline-start: 1.4em;
+
+      li + li {
+        margin-top: var(--spacing-small);
+      }
+    }
+  }
+}
+
 h1,
 h2,
 h3 {
   font-family: var(--font-family);
+  line-height: 1.2;
   color: var(--heading-colour);
   margin: var(--spacing-small) 0;
 }
 
 h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 900;
 }
 
 h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
 }
 
 h3 {
+  font-size: 1.2rem;
   font-weight: 500;
+}
+
+strong {
+  font-weight: 700;
 }
 
 a {
   color: var(--accent-colour);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
 
   &:hover {
-    color: var(--color-navy);
-    text-decoration: none;
+    text-decoration-thickness: 0.15em;
   }
 }
 
@@ -157,6 +184,27 @@ dl {
   dt {
     font-weight: 700;
   }
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent-colour);
+  outline-offset: 4px;
+  border-radius: var(--spacing-small);
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: var(--spacing-standard);
+  z-index: 10;
+  padding: var(--spacing-small) var(--spacing-standard);
+  color: var(--bg);
+  background: var(--text-colour);
+  transform: translateY(-120%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .visually-hidden {
@@ -208,10 +256,14 @@ dl {
     }
   }
 
+  &:focus-within {
+    outline: 3px solid var(--accent-colour);
+    outline-offset: 4px;
+  }
+
   &::before,
   &::after {
     content: '';
-    box-sizing: border-box;
     display: flex;
     width: var(--spacing-small);
     height: calc(2 * var(--spacing-small));
@@ -229,6 +281,25 @@ dl {
     border-top-right-radius: var(--spacing-small);
     border-bottom-right-radius: var(--spacing-small);
     border-left: none;
+  }
+}
+
+.specialisms {
+  display: flex;
+  gap: var(--spacing-small);
+  padding: 0;
+  margin: 0;
+
+  span {
+    &::before {
+      content: '•';
+      margin-right: var(--spacing-small);
+    }
+
+    &:first-child::before {
+      content: '';
+      margin-right: 0;
+    }
   }
 }
 
@@ -254,5 +325,84 @@ dl {
 
   .dates {
     font-style: italic;
+  }
+}
+
+@media (max-width: 40rem) {
+  header address {
+    width: 100%;
+    text-align: left;
+
+    ul {
+      justify-content: flex-start;
+    }
+  }
+
+  dl {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-small);
+  }
+
+  dd {
+    margin-bottom: var(--spacing-standard);
+  }
+
+  .company {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (forced-colors: active) {
+  .theme-toggle {
+    border: 1px solid ButtonText;
+  }
+
+  .theme-toggle::before,
+  .theme-toggle::after {
+    border-color: ButtonText;
+  }
+}
+
+@media print {
+  :root {
+    --bg: #ffffff;
+    --text-colour: #000000;
+    --heading-colour: #000000;
+    --accent-colour: #000000;
+    --border-colour: #777777;
+  }
+
+  body {
+    display: block;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+
+  header,
+  main,
+  footer {
+    max-width: none;
+  }
+
+  .theme-toggle,
+  .skip-link {
+    display: none;
+  }
+
+  section,
+  article {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  a {
+    color: inherit;
   }
 }
