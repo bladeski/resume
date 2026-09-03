@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Jonathan Blades is a senior front-end engineer specialising in Angular, TypeScript, UX, accessibility and enterprise web applications." />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:title" content="Jonathan Blades | Senior Front-End Engineer" />
   <meta property="og:description"
     content="Senior front-end engineer specialising in Angular, TypeScript, UX and accessibility." />
   <meta property="og:type" content="profile" />
-  <meta property="og:url" content="https://bladeski.github.io/bio/" />
-  <link rel="canonical" href="https://bladeski.github.io/bio/" />
+  <meta property="og:url" content="https://bladeski.github.io/resume/" />
+  <link rel="canonical" href="https://bladeski.github.io/resume/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -25,7 +27,7 @@
     <a class="skip-link" href="#MainContent">Skip to main content</a>
     <label class="theme-toggle" for="theme-toggle">
       <input class="visually-hidden" type="checkbox" role="switch" id="theme-toggle" name="theme-toggle" />
-      <span class="visually-hidden">Use non-system colour theme.</span>
+      <span class="visually-hidden">Use opposite colour theme.</span>
     </label>
     <h1>Jonathan Blades</h1>
     <address>
@@ -44,11 +46,11 @@
     </address>
     <div class="job-title">
       <span>Senior Front-End Engineer</span>
-      <span class="specialisms">
-        <span>Angular</span>
-        <span>UX</span>
-        <span>Accessibility</span>
-      </span>
+      <ul class="specialisms" aria-label="Specialisms">
+        <li>Angular</li>
+        <li>UX</li>
+        <li>Accessibility</li>
+      </ul>
     </div>
   </header>
   <main id="MainContent">
@@ -72,7 +74,7 @@
         <dd>Angular, TypeScript, JavaScript, HTML, CSS, SCSS, RxJS</dd>
 
         <dt>UX & Accessibility</dt>
-        <dd>UX Design, WCAG Accessibility, User-Centred Design, Responsive Design</dd>
+        <dd>UX design, WCAG accessibility, user-centred design, responsive design</dd>
 
         <dt>Testing</dt>
         <dd>Vitest, Jest, Cypress</dd>
@@ -81,7 +83,7 @@
         <dd>Azure, Azure DevOps, CI/CD, Docker, AWS, Git</dd>
 
         <dt>Leadership</dt>
-        <dd>Technical Leadership, Mentoring, Line Management, Agile Methodologies, Stakeholder Management</dd>
+        <dd>Technical leadership, mentoring, line management, agile methodologies, stakeholder management</dd>
       </dl>
     </section>
     <section>
@@ -112,12 +114,8 @@
             development practices.
           </li>
           <li>
-            Increased automated test coverage across the application, improving confidence in changes and helping
-            identify regressions earlier in development.
-          </li>
-          <li>
-            Created reusable components and shared implementation patterns, reducing duplicated code and improving
-            consistency across the application.
+            Establish and promote front-end standards through reusable components, shared implementation patterns,
+            automated testing, architecture decisions and code review.
           </li>
           <li>
             Improved application accessibility by embedding WCAG-informed practices into feature design, implementation,
@@ -125,16 +123,12 @@
           </li>
 
           <li>
-            Improved Azure DevOps build and deployment processes, reducing the time required to build and release
+            Have improved Azure DevOps build and deployment processes, reducing the time required to build and release
             application changes.
           </li>
           <li>
             Translate complex operational requirements into accessible interfaces in collaboration with stakeholders,
             subject-matter experts and end users.
-          </li>
-          <li>
-            Establish and promote front-end standards through architecture decisions, code reviews, shared patterns and
-            knowledge sharing.
           </li>
           <li>
             Line manage one developer and have mentored another, providing technical guidance, delivery support and
@@ -177,7 +171,7 @@
         </ul>
       </article>
     </section>
-    <section>
+    <section class="selected-work">
       <h2>Selected Work</h2>
       <article>
         <h3>Transport Asset-Management Platform</h3>
@@ -201,12 +195,17 @@
           Professional engineering initiative
         </p>
         <p>
-          Created reusable components and shared implementation patterns for common application workflows, reducing
-          duplicated code and improving consistency across the product.
+          Identified repeated implementation patterns across complex application workflows and developed reusable
+          Angular components and shared conventions to address them.
         </p>
         <p>
-          Expanded automated test coverage and embedded WCAG-informed practices into implementation, code review and
-          testing, increasing confidence in application changes.
+          The approach reduced duplicated code, improved consistency and made common behaviour easier to test and
+          maintain. Supporting test utilities and expanded automated coverage increased confidence in subsequent
+          application changes.
+        </p>
+        <p>
+          The shared patterns are now used across multiple application areas and form the default approach for new
+          workflow development.
         </p>
         <p>
           <strong>Technologies and practices:</strong>
@@ -229,8 +228,8 @@
           documentation, release automation and automated threat-data updates.
         </p>
         <p>
-          <strong>My contribution:</strong>
-          Product design, implementation, documentation, automation and ongoing maintenance.
+          <strong>Technologies and practices:</strong>
+          Node.js, npm tooling, CI integration, security-advisory data, documentation and release automation.
         </p>
       </article>
     </section>
@@ -255,7 +254,7 @@
       <article>
         <h3>Bachelor of Science in Computer and Electronic Systems</h3>
         <div class="company">
-          <span class="company-name">The University of Strathclyde in Glasgow</span>
+          <span class="company-name">The University of Strathclyde, Glasgow</span>
           <span class="dates"><time datetime="2000-09">September 2000</time>
             <span aria-hidden="true">–</span>
             <span class="visually-hidden">to</span>
@@ -279,6 +278,7 @@
     </section>
   </main>
   <footer>
+    <p>Based near Glasgow, Scotland.</p>
     <p>
       View my work on
       <a href="https://github.com/bladeski">GitHub</a>

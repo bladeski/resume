@@ -76,7 +76,8 @@ body {
 }
 
 header,
-main {
+main,
+footer {
   max-width: 72ch;
   width: 100%;
 }
@@ -110,14 +111,14 @@ header {
       margin: 0;
       padding: 0;
       display: flex;
-      gap: var(--spacing-small);
+      gap: var(--spacing-standard);
       list-style: none;
     }
   }
 }
 
 section {
-  & > article + article {
+  &>article+article {
     margin-top: var(--spacing-large);
   }
 
@@ -125,11 +126,15 @@ section {
     ul {
       padding-inline-start: 1.4em;
 
-      li + li {
+      li+li {
         margin-top: var(--spacing-small);
       }
     }
   }
+}
+
+footer {
+  padding-bottom: var(--spacing-large);
 }
 
 h1,
@@ -287,20 +292,15 @@ dl {
 
 .specialisms {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-small);
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 
-  span {
-    &::before {
-      content: '•';
-      margin-right: var(--spacing-small);
-    }
-
-    &:first-child::before {
-      content: '';
-      margin-right: 0;
-    }
+  li+li {
+    padding-inline-start: var(--spacing-small);
+    border-inline-start: 1px solid var(--border-colour);
   }
 }
 
@@ -327,6 +327,27 @@ dl {
   .dates {
     font-style: italic;
   }
+}
+
+.selected-work {
+  article {
+    padding-inline-start: var(--spacing-standard);
+    border-inline-start: 0.25rem solid var(--accent-colour);
+
+    +article {
+      margin-top: var(--spacing-large);
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+.project-context {
+  margin-block: var(--spacing-small);
+  font-size: 0.9em;
+  font-style: italic;
 }
 
 @media (max-width: 40rem) {
@@ -393,8 +414,8 @@ dl {
     display: none;
   }
 
-  section,
-  article {
+  .selected-work article,
+  section:not(:has(> h2 + article ul)) article {
     break-inside: avoid;
   }
 

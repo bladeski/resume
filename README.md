@@ -1,12 +1,12 @@
-# Jonathan Blades | Professional Bio
+# Jonathan Blades | Professional Résumé
 
 A lightweight, accessible online résumé for Jonathan Blades, a Senior Front-End Engineer specialising in Angular, TypeScript, UX and accessibility.
 
 ## Live site
 
-View the published résumé:
+My accessible online résumé, built with semantic HTML and modern CSS.
 
-[https://bladeski.github.io/bio/](https://bladeski.github.io/bio/)
+[View my published résumé](https://bladeski.github.io/resume/)
 
 ## About
 
@@ -84,7 +84,7 @@ There is no application framework, build process or client-side JavaScript depen
 ## Project structure
 
 ```text
-bio/
+resume/
 ├── index.html
 ├── styles.css
 └── README.md
