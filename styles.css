@@ -63,6 +63,7 @@ body {
   font-weight: 300;
   font-style: normal;
   line-height: 1.6;
+  letter-spacing: 0.12em;
 
   width: 100%;
   overflow: auto;
