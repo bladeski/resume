@@ -138,7 +138,7 @@ h3 {
   font-family: var(--font-family);
   line-height: 1.2;
   color: var(--heading-colour);
-  margin: var(--spacing-small) 0;
+  margin: var(--spacing-standard) 0 var(--spacing-small);
 }
 
 h1 {
